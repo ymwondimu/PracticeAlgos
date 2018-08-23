@@ -5,8 +5,11 @@ def saturated(ranges):
         range1 = sorted_ranges[i]
         range2 = sorted_ranges[i+1]
 
-        if abs(range1[1]-range2[0]) > 1:
-            return False
+        diff = range2[0] - range1[1]
+
+        if diff > 1 or diff < 0:
+        #if diff != 1:
+           return False
 
     return True
 
@@ -17,7 +20,7 @@ def sort(ranges):
     return final
 
 def main():
-    ranges = [[-5, -2], [-2, 0], [2,5], [0,2], [10,15], [6,9]]
+    ranges = [[-5, -2], [-1, 0], [3,5], [1,2], [10,15], [6,9]]
     ranges2 = [[3,10], [0,5], [50,100]]
     print (saturated(ranges))
 
